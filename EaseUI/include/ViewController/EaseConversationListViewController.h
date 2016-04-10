@@ -1,10 +1,14 @@
-//
-//  EaseConversationListViewController.h
-//  ChatDemo-UI3.0
-//
-//  Created by dhc on 15/6/25.
-//  Copyright (c) 2015年 easemob.com. All rights reserved.
-//
+/************************************************************
+ *  * Hyphenate CONFIDENTIAL
+ * __________________
+ * Copyright (C) 2016 Hyphenate Inc. All rights reserved.
+ *
+ * NOTICE: All information contained herein is, and remains
+ * the property of Hyphenate Inc.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Hyphenate Inc.
+ */
 
 #import "EaseRefreshTableViewController.h"
 
@@ -76,11 +80,25 @@ typedef NS_ENUM(int, DXDeleteConvesationType) {
 @end
 
 
-@interface EaseConversationListViewController : EaseRefreshTableViewController
+@interface EaseConversationListViewController : EaseRefreshTableViewController <EMChatManagerDelegate,EMGroupManagerDelegate>
 
 @property (weak, nonatomic) id<EaseConversationListViewControllerDelegate> delegate;
 @property (weak, nonatomic) id<EaseConversationListViewControllerDataSource> dataSource;
 
+/*!
+ @method
+ @brief 下拉加载更多
+ @discussion
+ @result
+ */
 - (void)tableViewDidTriggerHeaderRefresh;
+
+/*!
+ @method
+ @brief 内存中刷新页面
+ @discussion
+ @result
+ */
+- (void)refreshAndSortView;
 
 @end
